@@ -161,6 +161,8 @@ def exportobj(chunk):
             p.write("unable to export obj model\n")
 
 def main():
+    checkcreatefolder(path_log)
+    
     with open(path_log+pylogdate, 'a') as p:
         p.write("******************************************************************************************\n")
         p.write(str(datetime.datetime.now())+"\n")
@@ -203,8 +205,7 @@ def main():
     exportobj(chunk)
 
     timer2=time.time()
-
-    checkcreatefolder(path_log)
+    
     with open(path_log+pylogdate, 'a') as p:
         p.write("total time: "+diff_time(timer2,timer1)+"\n")
         p.write("Processing complete\n")
